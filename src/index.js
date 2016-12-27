@@ -2,6 +2,7 @@ import evanyou from './evanyou'
 
 export default () => {
   return ({router}) => {
+    let listener
     router.afterEach(to => {
       const isLanding = to.meta && to.meta.name
       if (isLanding) {
@@ -15,10 +16,12 @@ export default () => {
         canvas.style.width = '100%'
         canvas.style.pointerEvents = 'none'
         document.body.appendChild(canvas)
-        evanyou()
+        listener = evanyou()
+        document.addEventListener('click', listener)
       } else {
         const canvas = document.getElementById('evanyou-canvas')
         if (canvas) canvas.parentNode.removeChild(canvas)
+        if (listener) document.removeEventListener('click', listener)
       }
     })
   }
