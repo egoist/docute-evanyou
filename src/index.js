@@ -20,8 +20,13 @@ export default () => {
         document.addEventListener('click', listener)
       } else {
         const canvas = document.getElementById('evanyou-canvas')
-        if (canvas) canvas.parentNode.removeChild(canvas)
-        if (listener) document.removeEventListener('click', listener)
+        if (canvas) {
+          canvas.parentNode.removeChild(canvas)
+        }
+        if (listener) {
+          document.removeEventListener('click', listener)
+          listener = undefined
+        }
       }
     })
   }
