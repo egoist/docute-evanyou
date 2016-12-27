@@ -4,7 +4,7 @@ export default () => {
   return ({router}) => {
     let listener
     router.afterEach(to => {
-      const isLanding = to.meta && to.meta.name
+      const isLanding = to.meta && (to.meta.name === 'landing')
       if (isLanding) {
         const canvas = document.createElement('canvas')
         canvas.id = 'evanyou-canvas'
