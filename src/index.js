@@ -1,12 +1,10 @@
 import evanyou from './evanyou'
 
-export default ({
-  all = false
-} = {}) => {
+export default () => {
   return ({router}) => {
     router.afterEach(to => {
-      const isLanding = to.meta && to.meta.name === 'landing'
-      if (isLanding || all) {
+      const isLanding = to.meta && to.meta.name
+      if (isLanding) {
         const canvas = document.createElement('canvas')
         canvas.id = 'evanyou-canvas'
         canvas.style.position = 'absolute'
@@ -18,6 +16,9 @@ export default ({
         canvas.style.pointerEvents = 'none'
         document.body.appendChild(canvas)
         evanyou()
+      } else {
+        const canvas = document.getElementById('evanyou-canvas')
+        if (canvas) canvas.parentNode.removeChild(canvas)
       }
     })
   }

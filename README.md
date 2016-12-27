@@ -2,6 +2,8 @@
 
 [![NPM version](https://img.shields.io/npm/v/docute-evanyou.svg?style=flat-square)](https://npmjs.com/package/docute-evanyou) [![NPM downloads](https://img.shields.io/npm/dm/docute-evanyou.svg?style=flat-square)](https://npmjs.com/package/docute-evanyou) [![Build Status](https://img.shields.io/circleci/project/egoist/docute-evanyou/master.svg?style=flat-square)](https://circleci.com/gh/egoist/docute-evanyou) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat-square)](https://github.com/egoist/donate)
 
+Add the exact same effect in evanyou.me to your docute landing page.
+
 ## Usage
 
 Add `docute-evanyou` to `index.html` in your docute docs:
@@ -16,16 +18,6 @@ And enable it in `config.js`:
 self.$config = {
   plugins: [
     evanyou()
-  ]
-}
-```
-
-By default it will only have effect in `landing` page, to use it in all pages:
-
-```js
-self.$config = {
-  plugins: [
-    evanyou({all: true})
   ]
 }
 ```
